@@ -1,0 +1,45 @@
+{% extends 'art/base.html' %}
+
+{% block title %}Login - Art Store{% endblock %}
+
+{% block content %}
+
+    
+    <div>
+        {% if user.is_authenticated %}
+        <p>Hello {{ user.username }}! Welcome to my Art shop</p>
+        {% else %}
+        <p> Welcome to my little Art Shop</p>
+
+        {% endif %}
+    </div>
+        
+    <h3>Available Artworks</h3>
+    <div class="art_listbox">
+        {% for art in art_list %}
+        <div class="art_card">
+            <div class="artimg">
+                <img src="{{ art.image.url }}" alt="{{ art.title }}" class="art_image">
+            </div>
+            <div class="heading">
+                <h4>{{art.title}}</h4>
+            </div>            
+            <div>
+                <div class="priceline">
+                   <label><strong>KES:</strong>{{art.price}}</label> - <strong>{{ art.get_status_display }}</strong>
+                </div>
+                <div class="sellbox">
+                    <div class="detailbutton">
+                        <a href="{% url 'art:art_detail' art.id %}">view details</a>
+                    </div>
+                    <form action="{% url 'art:add_to_cart' art.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="buttonbox">Add to Cart</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>        
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'art/base.html' %}
+
+{% block title %}Login - Art Store{% endblock %}
+
+{% block content %}
+<div class="dartcontainer">
+    <div class="dartimage">
+        <img src="{{ art.image.url }}" alt="{{ art.title }}" class="dimage">
+    </div>
+
+    <div class="artdescription">
+        <h3><strong>Title:</strong> {{ art.title }}</h3>
+        <p><strong>Artist:</strong> {{ art.artist }}</p>
+        <p><strong>Description:</strong> {{ art.description }}</p>
+        <p><strong>Price:</strong> KES{{ art.price }}</p>
+        <p><strong>Status:</strong> {{ art.get_status_display }}</p>
+        <p><strong>Category:</strong> {{ art.category }}</p>
+    </div>
+</div>
+<div class="dbacklink">
+    <div class="db">
+        <button>
+            <a href="{% url 'art:art_list' %}">Back to Art List</a>
+        </button>
+    </div>
+    
+    <div class="db">
+        <form action="{% url 'art:add_to_cart' art.id %}" method="post" class="dform">
+            {% csrf_token %}
+            <button type="submit">Add to Cart</button>
+        </form>
+    </div>  
+</div>
+{%endblock%}

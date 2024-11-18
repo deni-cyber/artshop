@@ -1,0 +1,82 @@
+
+.art_listbox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.art_card{
+    max-width: 500px;
+    background-color: gainsboro;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    margin: 1%;
+}
+.artimg{
+    border-radius: 1px;
+}
+.heading{
+    font-weight: bolder;
+    width: 100%;
+    text-decoration: underline;
+}
+.sellbox{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+.sellbox a{
+    text-decoration: none;
+    color: white;
+}
+.detailbutton{
+    background-color: brown;
+    padding: none;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+.sellbox form{
+    border: none;
+    flex-grow: 5;
+    background-color: #009E56;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.art_image{
+    width: 300px;
+}
+.priceline{
+    background-color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .art_card {
+        max-width: 100%; /* Reduce width for mobile view */
+        margin: 10px auto; /* Center align cards */
+    }
+
+    .heading {
+        font-size: 1.2em;
+    }
+
+    .sellbox {
+        flex-direction: row; /* Stack buttons vertically */
+        gap: 5px;
+        align-items: center;
+    }
+
+    .sellbox a {
+        width: 100%; /* Full width buttons for easier taps */
+        text-align: center;
+    }
+    
+}
+

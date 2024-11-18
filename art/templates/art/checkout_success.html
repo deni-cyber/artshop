@@ -1,0 +1,20 @@
+{% extends 'art/base.html' %}
+
+{% block title %}Login - Art Store{% endblock %}
+
+{% block content %}
+
+    <h1>Order Confirmed!</h1>
+    <p>Thank you for your order, {{ order.user.username }}.</p>
+    <p>Order ID: {{ order.id }}</p>
+    <p>Total Amount: ${{ order.total_amount }}</p>
+    <h3>Order Items:</h3>
+    <ul>
+        {% for item in order.items.all %}
+            <li>{{ item.art.title }} - ${{ item.price }} x {{ item.quantity }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'art:art_list' %}">Continue Shopping</a>
+
+
+{% endblock %}

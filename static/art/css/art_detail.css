@@ -1,0 +1,44 @@
+.dartcontainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.dartimage{
+    text-align: center;
+    width: 60%;
+}
+.dimage{
+    max-width: 60%;
+}
+
+
+.artdescription{
+    padding: 1%;
+    text-align: left;
+    width: 30%;
+}
+
+.dbacklink{
+    background-color: brown;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1%;
+}
+.dform{
+    background-color: brown;
+}
+.dbacklink button{
+    border: solid 1px white; 
+    text-decoration: none; 
+}
+.dbacklink a{
+    text-decoration: none;
+    color: white;
+}
+.db{
+    display: flex;
+    align-items: center;
+}

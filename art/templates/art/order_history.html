@@ -1,0 +1,36 @@
+{% extends 'art/base.html' %}
+
+{% block title %}Login - Art Store{% endblock %}
+
+{% block content %}
+
+    <h3>Your Orders</h3>
+<div class="tcontainer">
+    <table class="table">
+        <tr>
+            <th>order id</th>
+            <th>total(KES)</th>
+            <th>date of order</th>
+            <th>order's items</th>
+        </tr>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.total_amount }}</td>
+            <td>{{ order.created_at }}</td>
+            <td>
+                <ul>
+                    {% for item in order.items.all %}
+                    <li>{{ item.art.title }} x {{ item.quantity }}
+                    {% endfor %}
+                </ul>
+                
+            </td>
+        </tr>
+        {% endfor %}
+      </table>
+</div>
+<div>
+    <a href="{% url 'art:art_list' %}">Continue Shopping</a>
+</div>
+{% endblock %}

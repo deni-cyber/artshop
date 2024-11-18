@@ -1,0 +1,16 @@
+{% extends 'art/base.html' %}
+
+{% block title %}Login - Art Store{% endblock %}
+
+{% block content %}
+
+    <h1>Create an Account</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Sign Up</button>
+    </form>
+    <div class="backlink">
+        <p>Already have an account? <button><a href="{% url 'art:custom_login' %}">Login</a></button></p>
+    </div>
+{% endblock %}

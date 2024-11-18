@@ -1,0 +1,18 @@
+.tcontainer{
+    display: flex;
+    justify-content: center;
+}
+.table{
+    background-color: gainsboro;
+}
+
+.table th{
+    background-color: #009E56;
+    color: white;
+    padding: 2px;
+}
+.table td{
+    background-color: white;
+    text-align: left;
+    padding: 4px;
+}

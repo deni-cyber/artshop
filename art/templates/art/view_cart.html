@@ -1,0 +1,51 @@
+{% extends 'art/base.html' %}
+
+{% block title %}Login - Art Store{% endblock %}
+
+{% block content %}
+
+    <h3>Your Cart</h3>
+    <div class="item-list">
+        {% for item in cart_items %}
+            <div class="item">
+                <div class="itemimg">
+                    <img src="{{ item.art.image.url }}" alt="{{ art.title }}" class="art_image">
+                </div>
+                <div class="item-details">
+                    <h4>{{ item.art.title }}</h4>
+                    <h5>KES {{ item.art.price }} x {{ item.quantity }}= KES <strong style="color: brown;">{{ item.subtotal }}</strong></h5>
+                </div>
+                <div class="removebutton">
+                    <button>
+                        <a href="{% url 'art:remove_from_cart' item.art.id %}">Remove</a>
+                    </button>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="totals">
+            <h4>Total: KSH {{ total }}</h4>
+        </div>
+        {% if cart_items %}
+        <form action="{% url 'art:checkout' %}" method="post" class="checkoutbox">
+            {% csrf_token %}
+
+            <button type="submit">Proceed to Checkout</button>
+        </form>
+
+        {% else %}
+            <div>
+                <p>Your cart is empty.</p>
+            </div>
+        {% endif %}
+        <div class="backlink">
+            <button>
+                <a href="{% url 'art:clear_cart' %}" class="btn btn-warning">Clear Cart</a>
+            </button>
+            <button>
+                <a href="{% url 'art:art_list' %}">Continue Shopping</a>
+            </button>
+        </div>
+    </div>
+    
+    
+{% endblock %}

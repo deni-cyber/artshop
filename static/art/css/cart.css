@@ -1,0 +1,74 @@
+.item-list{
+    background-color: gainsboro;
+}
+
+.item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    margin: 2%;
+    padding: 8px;
+}
+
+.itemimg{
+    flex-grow: 0;
+}
+
+.itemimg img{
+    width: 100px;
+    height: auto;
+}
+
+.item-details{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 3;
+}
+
+.removebutton{
+    display: flex;
+    justify-content: center;
+}
+
+.removebutton a{
+    text-decoration: NONE;
+    color: white;
+}
+
+.removebutton form{
+    background-color: #009E56;
+}
+
+.totals{
+    background-color: white;
+    color: black;
+    width: 100%;
+    margin-left: 4px;
+    margin-left: 4px;
+}
+
+.checkoutbox{
+    background-color: #009E56;
+    display: flex;
+    justify-content: center;
+}
+
+.checkoutbox button{
+    border: solid white 1px;
+}
+
+.backlink{
+    background-color: brown;
+    color: white;
+    border-radius: 4px;
+    padding: 3%;
+}
+
+.backlink a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px;
+    font-size: small;
+}
