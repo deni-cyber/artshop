@@ -23,13 +23,6 @@ def art_list(request):
         art_list = art_list.filter(
             Q(title__icontains=query) | Q(description__icontains=query)
         )
-
-    # Apply price filters
-    if price_min:
-        art_list = art_list.filter(price__gte=price_min)
-    if price_max:
-        art_list = art_list.filter(price__lte=price_max)
-
     # Apply category filter if selected
     if category_id:
         art_list = art_list.filter(category_id=category_id)

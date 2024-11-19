@@ -26,15 +26,7 @@
             
             <div class="filterbox">
                 <form method="get" action="{% url 'art:art_list' %}">
-                    <input type="text" name="q" placeholder="Search art by name..." value="{{ request.GET.q }}" class="searchtext">
-        
-                    <label for="price_min">Min Price:</label>
-                    <input type="number" name="price_min" min="0" value="{{ request.GET.price_min }}">
-        
-                    <label for="price_max">Max Price:</label>
-                    <input type="number" name="price_max" min="0" value="{{ request.GET.price_max }}">
-        
-                    <label for="category">Category:</label>
+                    <label for="category" class="hideonmobile">Category:</label>
                     <select name="category">
                         <option value="">All Categories</option>
                         {% for category in categories %}
@@ -43,8 +35,11 @@
                             </option>
                         {% endfor %}
                     </select>
-        
-                    <button type="submit">Search</button>
+                    <input type="text" name="q" placeholder="Search art by name..." value="{{ request.GET.q }}" class="searchtext">
+
+                    
+                        <small class="showonmobile"><button type="submit">Go</button></small>
+                    <label class="hideonmobile"><button type="submit" >Search</button></label>
                 </form>
             </div>
             
@@ -52,6 +47,9 @@
                 <div class="navlistbox">
                     <a href="{% url 'art:art_list' %}">Shop</a>
                     <a href="{% url 'art:view_cart' %}">Cart</a>
+                    <a href="{% url 'art:contact' %}">Contact</a>
+                    <a href="{% url 'art:about' %}">About</a>
+
                     {% if user.is_authenticated %}
                     <a href="{% url 'art:order_history' %}">MyOrders</a>
 
@@ -68,9 +66,11 @@
             <div class="collapsible">
                     <a href="{% url 'art:art_list' %}">Shop</a>
                     <a href="{% url 'art:view_cart' %}">Cart</a>
+                    <a href="{% url 'art:contact' %}">Contact</a>
+                    <a href="{% url 'art:about' %}">About</a>
                     {% if user.is_authenticated %}
-                    <a href="{% url 'art:custom_logout' %}">Logout</a>
                     <a href="{% url 'art:order_history' %}">MyOrders</a>
+                    <a href="{% url 'art:custom_logout' %}">Logout</a>
                     {% else %}
                         <a href="{% url 'art:custom_login' %}">Login</a>
                         <a href="{% url 'art:signup' %}">Signup</a>
