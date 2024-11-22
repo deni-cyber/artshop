@@ -1,14 +1,15 @@
 .item-list{
-    background-color: gainsboro;
+    background-color: white;
 }
 
 .item{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    background-color: white;
+    background-color: gainsboro;
     margin: 2%;
     padding: 8px;
+
 }
 
 .itemimg{
@@ -41,34 +42,25 @@
 }
 
 .totals{
-    background-color: white;
-    color: black;
     width: 100%;
-    margin-left: 4px;
-    margin-left: 4px;
-}
-
-.checkoutbox{
-    background-color: #009E56;
-    display: flex;
-    justify-content: center;
-}
-
-.checkoutbox button{
-    border: solid white 1px;
-}
-
-.backlink{
     background-color: brown;
     color: white;
-    border-radius: 4px;
-    padding: 3%;
 }
 
-.backlink a{
+.cbottomnav{
+    display: flex;
+    flex-direction: column;
+}
+.buttonnavbox{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    padding: 1%;
+}
+.buttonnavbox form{
+    width: auto;
+}
+.buttonnavbox a{
     text-decoration: none;
     color: white;
-    font-weight: bold;
-    padding: 8px;
-    font-size: small;
 }

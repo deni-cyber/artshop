@@ -6,12 +6,7 @@
 
     
     <div>
-        {% if user.is_authenticated %}
-        <p>Hello {{ user.username }}! Welcome to my Art shop</p>
-        {% else %}
         <p> Welcome to my little Art Shop</p>
-
-        {% endif %}
     </div>
         
     <h3>Available Artworks</h3>
@@ -30,7 +25,7 @@
                 </div>
                 <div class="sellbox">
                     <div class="detailbutton">
-                        <a href="{% url 'art:art_detail' art.id %}">view details</a>
+                        <a href="{% url 'art:art_detail' art.id %}">Details</a>
                     </div>
                     <form action="{% url 'art:add_to_cart' art.id %}" method="post">
                         {% csrf_token %}

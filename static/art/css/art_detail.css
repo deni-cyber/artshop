@@ -7,6 +7,8 @@
 .dartimage{
     text-align: center;
     width: 60%;
+    padding: 1%;
+
 }
 .dimage{
     max-width: 60%;
@@ -16,12 +18,10 @@
 .artdescription{
     padding: 1%;
     text-align: left;
-    width: 30%;
 }
 
 .dbacklink{
     background-color: brown;
-    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -41,4 +41,23 @@
 .db{
     display: flex;
     align-items: center;
+}
+/* Mobile Styles */
+@media (max-width: 768px) {  
+    .dartcontainer{
+        flex-direction: column;
+    }
+    .dartimage{
+        width: 100%;
+    }
+    .dimage{
+        max-width: 100%;
+    }
+    
+    
+    .artdescription{
+        width: 100%;
+        text-align: center;
+    }
+    
 }

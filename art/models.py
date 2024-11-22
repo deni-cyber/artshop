@@ -8,12 +8,12 @@ class Category(models.Model):
     
 
 class Art(models.Model):
-    IN_STOCK = 'in_stock'
+    IN_STOCK = 'vailable'
     SOLD = 'sold'
 
     STATUS_CHOICES = [
-        (IN_STOCK, 'In Stock'),
-        (SOLD, 'Sold'),
+        (IN_STOCK, 'Available'),
+        (SOLD, 'Sold Out'),
     ]
 
     title = models.CharField(max_length=255)

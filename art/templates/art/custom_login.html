@@ -4,13 +4,19 @@
 
 {% block content %}
 
+
     <h1>Login</h1>
-    <form method="post">
+
+<div>
+    <form method="post" style="background-color: gainsboro; display: flex; align-items: center; flex-direction: column;">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Login</button>
+        <button type="submit" >Login</button>
     </form>
-    <div class="backlink">
-        <p>Don't have an account? <button><a href="{% url 'art:signup' %}">Sign up</a></button></p>
-    </div>
+</div>
+    
+<div class="backlink">
+    <p>Don't have an account? <button><a href="{% url 'art:signup' %}">Sign up</a></button></p>
+</div>
+
 {% endblock %}
