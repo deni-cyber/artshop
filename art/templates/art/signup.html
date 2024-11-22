@@ -1,11 +1,12 @@
 {% extends 'art/base.html' %}
 
+
 {% block title %}Login - Art Store{% endblock %}
 
 {% block content %}
 
     <h1>Create an Account</h1>
-    <form method="post">
+    <form method="post" style="background-color: gainsboro; display: flex; flex-direction: column; align-items: flex-start; padding: 2%; text-align: left;">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Sign Up</button>

@@ -4,6 +4,7 @@ body{
     font-size: 10px;
     font-family: monospace;
 }
+
 #page-container {
 position: relative;
 min-height: 100vh;
