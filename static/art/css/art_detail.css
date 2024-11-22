@@ -21,14 +21,14 @@
 }
 
 .dbacklink{
-    background-color: brown;
+    background-color: cadetblue;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     padding: 1%;
 }
 .dform{
-    background-color: brown;
+    background-color: cadetblue;
 }
 .dbacklink button{
     border: solid 1px white; 

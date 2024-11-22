@@ -3,11 +3,11 @@
     justify-content: center;
 }
 .table{
-    background-color: gainsboro;
+    background-color:  #7ea05f9d;
 }
 
 .table th{
-    background-color: #009E56;
+    background-color: #5FA082;
     color: white;
     padding: 2px;
 }

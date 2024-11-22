@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: gainsboro;
+    background-color:  #7ea05f9d;
     margin: 2%;
     padding: 8px;
 
@@ -38,12 +38,12 @@
 }
 
 .removebutton form{
-    background-color: #009E56;
+    background-color:  #7ea05f9d;
 }
 
 .totals{
     width: 100%;
-    background-color: brown;
+    background-color: cadetblue;
     color: white;
 }
 

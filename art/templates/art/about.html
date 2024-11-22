@@ -1,5 +1,44 @@
 {% extends 'art/base.html' %}
+{% load static %}
+
 {% block content %}
-<h1>About Us</h1>
-<p>Welcome to ArtShop, where creativity meets commerce! We showcase unique art pieces and provide a seamless buying experience.</p>
+<h2>Meet The Artist</h2>
+<div class="aboutc">
+    <div class="aphoto">
+        <img src="{% static 'art/images/deni.png' %}" alt="image">
+        <div class="aiconbox">
+            
+            <div class="aicon">
+                <a href="#" ><img src="{% static 'art/images/fb.png' %}" alt="Logo" width="30"></a>
+            </div>
+            <div class="aicon">
+                <a href="#" ><img src="{% static 'art/images/ig.jpg' %}" alt="Logo" width="30"></a>
+            </div>
+            <div class="aicon">
+                <a href="#" ><img src="{% static 'art/images/email.png' %}" alt="Logo" width="30"></a>
+            </div>
+            
+        </div>
+    </div>
+    <div class="atext">
+        <div class="card">
+            <p>
+                "Welcome to Art Shop Deni! My name is Deni, a passionate artist dedicated to bringing creativity to life. 
+            ArtShop is my dream project to connect art lovers with one-of-a-kind creations."
+            </p>
+        </div>
+        <div class="card">
+            <h3>My mission</h3>
+            <p>
+                "At ArtShop, our mission is to make unique, hand-crafted art accessible to everyone."
+            </p>
+        </div>
+        <div class="card">
+            <h3>Core Principle</h3>
+            <p>
+                "I value originality, quality craftsmanship, and fostering a deep connection between art and its admirers."
+            </p>
+        </div>
+    </div>
+</div>
 {% endblock %}

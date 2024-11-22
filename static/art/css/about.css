@@ -1,0 +1,66 @@
+.aboutc{
+    display: flex;
+    align-items: center;
+    padding: .5%;
+    justify-content: center;
+}
+.aphoto{
+    align-self: flex-start;
+    background-color:  #7ea05f9d;
+    padding: 1%;
+    border-radius: 5px;
+}
+.aphoto img{
+    border-radius: 50%;
+}
+.aphoto a{
+    color:  white;
+}
+
+.atext{
+    padding: 1%;
+    width: 40%;
+}
+.card{
+    padding: .1%;
+    background-color:  #7ea05f9d;
+    border-radius: 5px;
+    margin: 1%;
+    padding: 1%;
+    color: #A0615F;
+}
+.atext p{
+    color: black;
+    text-align: justify;
+}
+.aiconbox{
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between; 
+    border-radius: 5px;
+}
+.aicon{
+    padding: 3px;    
+}
+
+@media (max-width: 768px) { 
+    .aboutc{
+        flex-direction: column;
+    }
+
+    .atext{
+        padding: 1%;
+        width: 100%;
+        text-align:center;
+        padding: 1%;
+    }
+
+    .aphoto{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 96%;
+        margin: 1%;
+        padding: 1%;
+    }
+ }

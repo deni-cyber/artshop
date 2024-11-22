@@ -1,0 +1,159 @@
+To verify a user's email after signup in Django, you can implement a flow where an email with a verification link is sent to the user’s email address. Here's how you can do it step by step:
+
+---
+
+### **1. Update Your User Model (Optional)**  
+If you're using Django's built-in `User` model, it already includes an `email` field. You may want to add a `is_email_verified` field to track whether the user has verified their email.
+
+For example, if using a custom user model:
+
+```python
+from django.contrib.auth.models import AbstractUser
+from django.db import models
+
+class CustomUser(AbstractUser):
+    is_email_verified = models.BooleanField(default=False)
+```
+
+If you're not using a custom user model, you can use the default `User` model and add this logic via another method.
+
+---
+
+### **2. Generate a Token**
+You can use Django's `PasswordResetTokenGenerator` to create a unique token for the email verification.
+
+Create a utility for token generation:
+
+```python
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+
+class EmailVerificationTokenGenerator(PasswordResetTokenGenerator):
+    pass
+
+email_verification_token = EmailVerificationTokenGenerator()
+```
+
+---
+
+### **3. Send Verification Email**
+Create a function to send an email containing the verification link.
+
+```python
+from django.core.mail import send_mail
+from django.conf import settings
+from django.urls import reverse
+
+def send_verification_email(user, request):
+    token = email_verification_token.make_token(user)
+    uid = user.pk
+    verification_link = request.build_absolute_uri(
+        reverse('verify_email', kwargs={'uid': uid, 'token': token})
+    )
+    send_mail(
+        'Verify Your Email',
+        f'Click the link to verify your email: {verification_link}',
+        settings.DEFAULT_FROM_EMAIL,
+        [user.email],
+    )
+```
+
+---
+
+### **4. Add a View for Email Verification**
+Create a view to handle the verification process.
+
+```python
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+from django.http import HttpResponse
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.utils.http import urlsafe_base64_decode
+
+def verify_email(request, uid, token):
+    try:
+        user_id = urlsafe_base64_decode(uid).decode()
+        user = User.objects.get(pk=user_id)
+    except (User.DoesNotExist, ValueError, TypeError):
+        return HttpResponse("Invalid verification link.")
+
+    token_generator = EmailVerificationTokenGenerator()
+    if token_generator.check_token(user, token):
+        user.is_email_verified = True
+        user.save()
+        return HttpResponse("Email verified successfully!")
+    else:
+        return HttpResponse("Invalid or expired token.")
+```
+
+---
+
+### **5. URL Configuration**
+Add a URL pattern for the verification view.
+
+```python
+from django.urls import path
+from .views import verify_email
+
+urlpatterns = [
+    path('verify-email/<str:uid>/<str:token>/', verify_email, name='verify_email'),
+]
+```
+
+---
+
+### **6. Update Signup Logic**
+After a user signs up, trigger the email verification function:
+
+```python
+from django.contrib.auth.models import User
+from django.shortcuts import redirect
+from .utils import send_verification_email
+
+def signup(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+        user = User.objects.create_user(username=username, email=email, password=password)
+        user.is_active = False  # Temporarily deactivate the user
+        user.save()
+        send_verification_email(user, request)
+        return HttpResponse("Check your email to verify your account.")
+    return render(request, 'signup.html')
+```
+
+---
+
+### **7. Frontend Enhancements**
+Add messages or redirect users who attempt to log in without email verification. For example:
+
+```python
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect
+
+@login_required
+def protected_view(request):
+    if not request.user.is_email_verified:
+        return HttpResponse("Please verify your email to access this page.")
+    # Your view logic here
+```
+
+---
+
+### **8. Configure Email Settings**
+Update `settings.py` to set up email:
+
+```python
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your-email@example.com'
+EMAIL_HOST_PASSWORD = 'your-email-password'
+
+DEFAULT_FROM_EMAIL = 'noreply@yourdomain.com'
+```
+
+---
+
+This setup ensures users verify their email before accessing your app fully. Let me know if you need help implementing any part!
