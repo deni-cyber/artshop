@@ -4,8 +4,8 @@
 __pycache__/
 
 # Virtual environment folder
-env/
-venv/
+.env/
+.venv/
 
 # Django stuff
 db.sqlite3
