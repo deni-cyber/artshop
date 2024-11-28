@@ -57,7 +57,10 @@
     
     .artdescription{
         width: 100%;
-        text-align: center;
+        text-align: left;
+        margin-left: 2%;
     }
-    
+    .artdescription strong{
+        text-decoration: underline;
+    }
 }

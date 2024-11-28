@@ -7,9 +7,8 @@
     justify-content: space-around;
     align-items: center;
     background-color:  #7ea05f9d;
-    margin: 2%;
     padding: 8px;
-
+    border-radius: 5px;
 }
 
 .itemimg{
@@ -56,6 +55,7 @@
     flex-wrap: nowrap;
     justify-content: space-around;
     padding: 1%;
+    background-color: cadetblue;
 }
 .buttonnavbox form{
     width: auto;

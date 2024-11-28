@@ -37,16 +37,21 @@ select{
 
 button{
     background-color: #A0615F;
-    border: none;
+    border:solid 1px white;
     color: white;
     border-radius: 5px;
     padding: 5px;
     font-weight: bold;
-    font-size: xx-small;
 }
+
+button:hover{
+    box-shadow: 1px 1px 7px black;
+}
+
 label{
     color: black;
 }
+
 
 
 ul{
@@ -165,7 +170,7 @@ ul{
 /* Mobile Styles */
 @media (max-width: 900px) {
     body {
-        font-size: 10px;
+        font-size: 8px;
         scroll-behavior: smooth;
     }
     .filterbox{

@@ -6,7 +6,6 @@
 }
 .aphoto{
     align-self: flex-start;
-    background-color:  #7ea05f9d;
     padding: 1%;
     border-radius: 5px;
 }
@@ -32,6 +31,7 @@
 .atext p{
     color: black;
     text-align: justify;
+    padding: 10px;
 }
 .aiconbox{
     display: flex;
@@ -52,7 +52,6 @@
         padding: 1%;
         width: 100%;
         text-align:center;
-        padding: 1%;
     }
 
     .aphoto{
