@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+
 }
 
 .dartimage{
@@ -12,12 +13,16 @@
 }
 .dimage{
     max-width: 60%;
+    box-shadow: 1px 1px 5px black;
+
 }
 
 
 .artdescription{
     padding: 1%;
     text-align: left;
+    box-shadow: 1px 1px 5px black;
+
 }
 
 .dbacklink{
@@ -59,6 +64,8 @@
         width: 100%;
         text-align: left;
         margin-left: 2%;
+        box-shadow: none;
+
     }
     .artdescription strong{
         text-decoration: underline;

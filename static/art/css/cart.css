@@ -6,9 +6,12 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color:  #7ea05f9d;
+    background-color: white;
     padding: 8px;
     border-radius: 5px;
+    margin: 2px;
+    box-shadow: 1px 1px 5px black;
+
 }
 
 .itemimg{
